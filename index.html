@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Exercice 3 partie 3</title>
+    <script src="jquery-3.2.1.js"></script>
+  </head>
+  <body>
+    <label for="lastName" id="form">Essayez de deviner le bon numéro :  </label><input type="text" name="alertBox" id="alertBox" />
+    <button type="button" name="button" id="buttonClick">Lancez</button>
+  </body>
+  <script>
+    //Déclaration de la variable qui servira au nombre d'essais
+    var count = 0;
+    //Déclaration de la variable qui générera les numéros aléatoirement
+    var randomNumber = Math.floor(Math.random() * (0 + 100) +1);
+    //Fonction qui permet de faire les conditions et d'afficher les boites de dialogue
+    $('#buttonClick').click(function(){
+      //Récupération de la valeur de #alertBox dans alertBox
+      var alertBox = $('#alertBox').val();
+      //Si alertBox est inférieur à randomNumber
+      if ((alertBox) < randomNumber) {
+        //On incrémente le nombre d'essais
+        count++;
+        //Préviens l'utilisateur que le numéro saisi est trop bas
+        alert('Plus !');
+      }
+      //Sinon si alertBox est supérieur au numéro
+      else if (alertBox > randomNumber) {
+        //On incrémente le nombre d'essais
+        count++;
+        //Préviens l'utilisateur que le numéro saisi est trop haut
+        alert('Moins !');
+      }
+      else if (alertBox == randomNumber) {
+        alert('Bravo ! Vous avez trouvé le bon numéro en ' + count + ' essais');
+      }
+      else if (alertBox > 100) {
+        alert('Le numéro se trouve entre 0 et 100, veuillez réessayer')
+      }
+    });
+  </script>
+</html>
