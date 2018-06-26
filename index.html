@@ -6,7 +6,7 @@
     <script src="jquery-3.2.1.js"></script>
   </head>
   <body>
-    <label for="lastName" id="form">Essayez de deviner le bon numéro :  </label><input type="text" name="alertBox" id="alertBox" />
+    <label for="lastName" id="form">Essayez de deviner le bon numéro entre 0 et 100 :  </label><input type="text" name="alertBox" id="alertBox" />
     <button type="button" name="button" id="buttonClick">Lancez</button>
   </body>
   <script>
@@ -32,11 +32,10 @@
         //Préviens l'utilisateur que le numéro saisi est trop haut
         alert('Moins !');
       }
-      else if (alertBox == randomNumber) {
+      //Sinon si le numéro saisi est égal au numéro aléatoire
+      else if(alertBox == randomNumber) {
+        //L'utilisateur a réussi le jeu, son nombre d'essais est aussi donné
         alert('Bravo ! Vous avez trouvé le bon numéro en ' + count + ' essais');
-      }
-      else if (alertBox > 100) {
-        alert('Le numéro se trouve entre 0 et 100, veuillez réessayer')
       }
     });
   </script>
